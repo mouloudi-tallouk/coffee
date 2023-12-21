@@ -1,0 +1,16 @@
+header .branding {
+    min-width: auto !important;
+}
+
+.coffee-bg {
+    background-image: url('src/assets/coffee-beans-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+.coffee-header {
+    background-color: #313131;
+    opacity: 65%;
+}

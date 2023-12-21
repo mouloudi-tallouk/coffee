@@ -1,0 +1,35 @@
+<div class="content-container wildcard-component">
+    <div class="content-area">
+      <div class="clr-row">
+        <div class="clr-col-4"></div>
+        <div class="clr-col-4">
+          <div class="card wildcard-card">
+            <div class="card-block">
+              <div class="card-header">
+                  <div class="clr-row">
+                    <div class="clr-col">
+                      <a [routerLink]="['/evaluations']" class="nav-link">
+                        <img src="../../../assets/images/sentinel-logo-base.png" class="wildcard-sentinel-logo"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              <div class="card-block">
+                <div class="card-text">
+                  <h3 class="h3 wildcard-heading" data-cy="wildcard-error">Error</h3>
+                  <h4 class="h4 wildcard-notice">Page not found.</h4>
+                </div>
+                <button class="btn btn-primary minibtn-primary wildcard-btn-return" [routerLink]="['/login']" data-cy="wildcard-button-home">
+                  <clr-icon shape="home" class="is-solid wildcard-btn-icon" size="24"></clr-icon>
+                  <span>&nbsp;</span>
+                  <span>Return</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="clr-col-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

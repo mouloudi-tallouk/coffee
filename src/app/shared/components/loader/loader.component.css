@@ -1,0 +1,9 @@
+@import '/src/styles.css';
+
+.loader-modal,
+.spinner-modal {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  text-align: center;
+}

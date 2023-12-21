@@ -1,0 +1,32 @@
+<div class="main-container coffee-bg">
+    <header class="header-6 coffee-header">
+        <div class="branding">
+            <a appRouterLinkMatch [match]="['/home']" [routerLink]="['/home']"
+                routerLinkActive="active"
+                class="nav-link nav-text main-nav-link">
+                <clr-icon shape="home" size="30" style="color: hsl(198, 20%, 91%);"></clr-icon>
+                
+            </a>
+        </div>
+        <div class="header-nav">
+            <a appRouterLinkMatch [match]="['/coffees']" [routerLink]="['/coffees']"
+                routerLinkActive="active"
+                class="nav-link nav-text main-nav-link">Coffees
+            </a>
+        </div>
+        <div class="header-actions">
+            <a class="nav-link nav-icon" aria-label="settings">
+                <clr-icon shape="cog"></clr-icon>
+            </a>
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="content-area">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="loading">
+    <app-loader></app-loader>
+</ng-container>

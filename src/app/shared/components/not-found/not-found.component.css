@@ -1,0 +1,43 @@
+@import '/src/styles.css';
+/*
+.wildcard-component {
+  background-color: #091858;
+  height: 100%;
+  overflow-x: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.wildcard-heading {
+  color: #091858;
+}
+
+.wildcard-notice {
+  color: #44697d;
+}
+*/
+
+
+.wildcard-card {
+  margin-top: 10%;
+  padding: 10px;
+}
+
+.wildcard-sentinel-logo {
+  max-height: 70px;
+  max-width: 100%;
+  padding: 0;
+}
+
+.wildcard-btn-return {
+  font-size: 14px;
+  margin-top: 30px;
+  max-width: 100%;
+  padding: 0px 20px;
+  text-align: center;
+}
+
+.wildcard-btn-icon {
+  margin: 0 auto;
+  text-align: center;
+}

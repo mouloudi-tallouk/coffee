@@ -1,0 +1,10 @@
+<clr-modal class="loader-modal" [clrModalOpen]="true" [clrModalClosable]="false" [clrModalSize]="'sm'">
+  <p class="modal-title font-center" *ngIf="displayMode === 'loading'">Loading</p>
+  <p class="modal-title font-center" *ngIf="displayMode === 'loadUpdate'">Updating...</p>
+  <p class="modal-title font-center" *ngIf="displayMode === 'summary'">Searching...</p>
+  <p class="modal-title font-center" *ngIf="displayMode === 'uploadingAttachment'">Saving...</p>
+  <p class="modal-title font-center" *ngIf="displayMode === 'downloading'">Downloading...</p>
+  <div class="modal-body spinner-modal">
+    <span class="spinner"></span>
+  </div>
+</clr-modal>

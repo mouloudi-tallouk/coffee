@@ -1,0 +1,93 @@
+<div class="clr-row" style="margin-top: 2rem;">
+    <div class="clr-offset-1 clr-col-10">
+        <ng-container  *ngIf="isLoading$ | async as loading">Please wait loading...</ng-container>
+        <ng-container *ngIf="apiError$ | async as error"> An error has occured!</ng-container>
+        <ng-container *ngIf="coffees$ | async as list">
+            <clr-datagrid *ngIf="list" [clrDgLoading]="loading" style="opacity: 0.98; height: 70vh;">
+                <clr-dg-column [clrDgField]="'blend_name'">
+                    <span>Blend Name</span>
+                </clr-dg-column>
+                <clr-dg-column [clrDgField]="'variety'">
+                    <span>Variety</span>
+                </clr-dg-column>
+                <clr-dg-column [clrDgField]="'intensifier'">
+                    <span>Intensifier</span>
+                </clr-dg-column>
+                <clr-dg-column>
+                    <span>Options</span>
+                </clr-dg-column>
+    
+                <clr-dg-row *ngFor="let item of list">
+                    <clr-dg-cell>{{ item.blend_name}}</clr-dg-cell>
+                    <clr-dg-cell>{{ item.variety }}</clr-dg-cell>
+                    <clr-dg-cell>{{ item.intensifier }}</clr-dg-cell>
+                    <clr-dg-cell>
+                        <div class="actions">
+                            <button class="btn btn-link btn-sm" (click)="showDetail(item)">
+                                <span>Details</span>
+                            </button>
+                        </div>
+                    </clr-dg-cell>
+                </clr-dg-row>
+    
+                <clr-dg-footer>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50]"></clr-dg-page-size>
+                        <span>Showing</span>
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        <span>of</span>
+                        {{ pagination.totalItems }}
+                        <span>Coffees</span>
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+            </clr-datagrid>
+        </ng-container>
+    </div>
+</div>
+
+<ng-container *ngIf="showCoffeeDetails">
+    <clr-modal class="modal-loading coffee-details-modal" [clrModalOpen]="true" [clrModalClosable]="false" [clrModalSize]="'lg'">
+      <h3 class="modal-title">Coffee Details</h3>
+      <div class="modal-body">
+        <div class="clr-row">
+          <div class="clr-col limit-height">
+            <div class="coffee-info">
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>ID:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.id }}</p></span> 
+                </div>
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>UID:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.uid }}</p></span> 
+                </div>
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>Blend Name:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.blend_name }}</p></span> 
+                </div>
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>Origin:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.origin }}</p></span> 
+                </div>
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>Variety:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.variety }}</p></span> 
+                </div>
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>Notes:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.notes }}</p></span> 
+                </div>
+                <div class="clr-row">
+                    <span class="clr-col-2 coffee-att-align"><p><strong>Intensifier:</strong></p></span>
+                    <span class="clr-col-10"><p>{{ coffeeDetails.intensifier }}</p></span> 
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="showCoffeeDetails = false;">
+          <span>Close</span>
+        </button>
+      </div>
+    </clr-modal>
+</ng-container>

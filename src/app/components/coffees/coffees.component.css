@@ -1,0 +1,11 @@
+:host ::ng-deep .coffee-details-modal>.modal>.modal-dialog .modal-body {
+    max-height: 77vh;
+}
+
+.limit-height clr-datagrid {
+    height: auto !important;
+}
+
+.coffee-att-align {
+    text-align: end;
+}
